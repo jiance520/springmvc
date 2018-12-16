@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/build/dist/chart/scatter.js,WebRoot/js/jquery.min.js,WebRoot/build/source/chart/scatter.js,WebRoot/build/source/echarts.js,WebRoot/build/dist/echarts.js,WebRoot/build/source/chart/map.js,WebRoot/build/dist/chart/map.js,WebRoot/build/source/echarts-all.js,WebRoot/build/dist/echarts-all.js,WebRoot/js/jquery-1.12.4.js
+validator.Unchecked=

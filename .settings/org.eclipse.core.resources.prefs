@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//WebRoot/forward.jsp=UTF-8
+encoding//src/com/interceptor/DemoInterceptor.java=UTF-8
+encoding//src/com/interceptor/TokenInterceptor.java=UTF-8
+encoding/<project>=GBK

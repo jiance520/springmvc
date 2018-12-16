@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IDemoDao" >
+  <resultMap id="BaseResultMap" type="com.entity.Demo" >
+    <id column="did" property="did" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="dtime" property="dtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    did, title, dtime
+  </sql>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+     select * from demo 
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from demo
+    where did = #{did,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from demo
+    where did = #{did,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Demo" useGeneratedKeys="true" keyProperty="did">
+    insert into demo (title, dtime
+      )
+    values (#{title,jdbcType=VARCHAR}, #{dtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Demo" >
+    insert into demo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="did != null" >
+        did,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="dtime != null" >
+        dtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="did != null" >
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="dtime != null" >
+        #{dtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Demo" >
+    update demo
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="dtime != null" >
+        dtime = #{dtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Demo" >
+    update demo
+    set title = #{title,jdbcType=VARCHAR},
+      dtime = #{dtime,jdbcType=TIMESTAMP}
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+</mapper>
